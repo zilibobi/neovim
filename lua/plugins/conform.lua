@@ -1,16 +1,23 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
 	config = function()
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				sleek = {
+					command = "sleek",
+				},
+			},
 			formatters_by_ft = {
+				go = { "gofmt" },
 				lua = { "stylua" },
 				luau = { "stylua" },
 				typescript = { "prettier" },
 				javascript = { "prettier" },
 				json = { "prettier" },
+				jsonc = { "prettier" },
+				sql = { "sleek" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

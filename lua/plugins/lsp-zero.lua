@@ -41,7 +41,7 @@ return {
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
-			ensure_installed = { "luau_lsp", "lua_ls" },
+			ensure_installed = { "luau_lsp", "lua_ls", "rust_analyzer", "gopls", "templ", "htmx", "pyright" },
 			handlers = {
 				lsp_zero.default_setup,
 

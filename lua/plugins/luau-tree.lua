@@ -1,4 +1,3 @@
 return {
-	"luau-tree.nvim",
-	dev = true,
+	"zilibobi/luau-tree.nvim",
 }

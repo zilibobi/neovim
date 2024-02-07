@@ -11,6 +11,12 @@ return {
 			server = {
 				settings = {
 					["luau-lsp"] = {
+						require = {
+							mode = "relativeToFile",
+							directoryAliases = {
+								["@lune/"] = "~/.lune/.typedefs/0.7.11",
+							},
+						},
 						-- enable auto imports
 						completion = {
 							imports = {

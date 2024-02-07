@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+opt.guicursor = ""
+
 -- show line numbers
 opt.number = true
 opt.relativenumber = true
@@ -12,9 +14,6 @@ opt.autoindent = true -- use the same indentation when creating a new line
 
 -- disable line wrapping
 opt.wrap = false
-
--- cursor line
-opt.cursorline = true -- highlight the current cursor line
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
@@ -37,6 +36,45 @@ opt.incsearch = true
 
 -- colors
 opt.termguicolors = true
+
+-- transparent background
+local groups = {
+	"Normal",
+	"NormalNC",
+
+	"SignColumn",
+
+	"CursorLine",
+	"LineNr",
+
+	"TelescopeNormal",
+	"TelescopeBorder",
+
+	"TelescopeSelection",
+	"TelescopeSelectionCaret",
+
+	"TelescopeResultsBorder",
+	"TelescopePreviewBorder",
+
+	"TelescopePromptBorder",
+	"TelescopePromptCounter",
+	"TelescopePromptPrefix",
+	"TelescopePromptNormal",
+	"TelescopePromptTitle",
+}
+
+for _, group in ipairs(groups) do
+	vim.api.nvim_set_hl(0, group, { bg = "None" })
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = { "*" },
+	callback = function()
+		for _, group in ipairs(groups) do
+			vim.api.nvim_set_hl(0, group, { bg = "None" })
+		end
+	end,
+})
 
 -- don't comment the next line when creating it from a commented line
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {

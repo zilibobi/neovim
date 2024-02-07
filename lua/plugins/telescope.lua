@@ -17,7 +17,7 @@ return {
 			builtin.find_files()
 		end)
 
-		vim.keymap.set("n", "<C-f>", function()
+		vim.keymap.set("n", "<leader>pg", function()
 			builtin.git_files()
 		end)
 
