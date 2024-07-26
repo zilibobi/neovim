@@ -1,14 +1,21 @@
 return {
 	"lopi-py/luau-lsp.nvim",
 	config = function()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+
 		require("luau-lsp").setup({
 			sourcemap = {
-				enable = true, -- enable sourcemap generation
+				enable = true,
+				enabled = true,
+				autogenerate = true,
+				rojo_project_file = "default.project.json",
 			},
-			types = {
-				roblox = true, -- enable roblox api
+			platform = {
+				type = "roblox",
 			},
 			server = {
+				capabilities = capabilities,
 				settings = {
 					["luau-lsp"] = {
 						require = {
@@ -17,7 +24,6 @@ return {
 								["@lune/"] = "~/.lune/.typedefs/0.7.11",
 							},
 						},
-						-- enable auto imports
 						completion = {
 							imports = {
 								enabled = true,

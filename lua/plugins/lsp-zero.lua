@@ -27,6 +27,34 @@ return {
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
+			window = {
+				completion = {
+					border = {
+						{ "", "WarningMsg" },
+						{ "─", "Comment" },
+						{ "╮", "Comment" },
+						{ "│", "Comment" },
+						{ "╯", "Comment" },
+						{ "─", "Comment" },
+						{ "╰", "Comment" },
+						{ "│", "Comment" },
+					},
+					scrollbar = false,
+				},
+				documentation = {
+					border = {
+						{ "", "DiagnosticHint" },
+						{ "─", "Comment" },
+						{ "╮", "Comment" },
+						{ "│", "Comment" },
+						{ "╯", "Comment" },
+						{ "─", "Comment" },
+						{ "╰", "Comment" },
+						{ "│", "Comment" },
+					},
+					scrollbar = false,
+				},
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-j>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -41,7 +69,18 @@ return {
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
-			ensure_installed = { "luau_lsp", "lua_ls", "rust_analyzer", "gopls", "templ", "htmx", "pyright" },
+			ensure_installed = {
+				"luau_lsp",
+				"lua_ls",
+				"rust_analyzer",
+				"gopls",
+				"templ",
+				"htmx",
+				"pyright",
+				"tsserver",
+				"yamlls",
+				"glslls",
+			},
 			handlers = {
 				lsp_zero.default_setup,
 

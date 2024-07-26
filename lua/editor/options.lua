@@ -41,6 +41,11 @@ opt.termguicolors = true
 local groups = {
 	"Normal",
 	"NormalNC",
+	"NormalFloat",
+
+	"Pmenu",
+	"PmenuKind",
+	"PmenuExtra",
 
 	"SignColumn",
 

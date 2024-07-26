@@ -17,7 +17,11 @@ return {
 				javascript = { "prettier" },
 				json = { "prettier" },
 				jsonc = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
 				sql = { "sleek" },
+				python = { "ruff_format" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
